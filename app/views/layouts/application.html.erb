@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Buzzy Rental Cars | <%= yield(:title) %></title>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <main>
+      <div>
+        <div>
+          <h1>Buzzy Rental Cars</h1>
+          <h2><%= yield(:title) %></h2>
+          <%= render partial: 'layouts/flash_messages' %>
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
