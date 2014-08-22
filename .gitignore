@@ -20,7 +20,6 @@
 
 # Ignore files containing private information.
 /config/database.yml
-/config/secrets.yml
 
 # Ignore Carrierwave uploads.
 /public/uploads/*
