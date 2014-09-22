@@ -1,0 +1,4 @@
+production:
+  after_symlink:
+    - command: ln -nfs $STACK_PATH/../shared/uploads $STACK_PATH/public/uploads
+      target: rails
