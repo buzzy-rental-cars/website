@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140802071222) do
+ActiveRecord::Schema.define(version: 20140921024622) do
 
   create_table "home_page", force: true do |t|
     t.string   "email"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20140802071222) do
     t.string   "twitter"
     t.string   "picture"
     t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "illustrations", force: true do |t|
+    t.integer  "illustratable_id"
+    t.string   "illustratable_type"
+    t.string   "illustration"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -48,6 +56,14 @@ ActiveRecord::Schema.define(version: 20140802071222) do
     t.datetime "updated_at"
   end
 
+  create_table "vehicle_types", force: true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "vehicles", force: true do |t|
     t.string   "name"
     t.string   "slug"
@@ -56,6 +72,12 @@ ActiveRecord::Schema.define(version: 20140802071222) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "number_of_people",                         default: 0
+    t.integer  "vehicle_type_id"
+    t.text     "body"
+    t.decimal  "economy_rating",   precision: 2, scale: 1, default: 0.0
+    t.integer  "seats",                                    default: 0
+    t.string   "luggage_capacity"
   end
 
 end

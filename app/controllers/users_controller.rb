@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :load_user, except: :index
 
   def index
-    @users = policy_scope(User.order(:name).page(params[:page]))
+    @users = policy_scope(User.order(:name))
   end
 
   def update

@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+
+$nav-link-hover-bg: #ffdd00;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+ul.nav-pills {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+h1 {
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-size: 26px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+h3 {
+  font-size: 20px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+blockquote {
+  font-style: italic;
+}

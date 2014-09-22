@@ -1,0 +1,57 @@
+<% title @vehicle.name %>
+
+<% unless @vehicle.published %>
+  <p class="unpublished">Unpublished</p>
+<% end %>
+
+<% if policy(@vehicle).edit? && policy(@vehicle).destroy? %>
+  <div class="btn-toolbar" role="toolbar">
+    <div class="btn-group">
+      <%= link_to 'Edit Vehicle', edit_vehicle_path(@vehicle),
+        class: "btn btn-default",
+        role: "button"
+      %>
+    </div>
+    <div class="btn-group">
+      <%= link_to 'Delete Vehicle', @vehicle,
+        data: { confirm: 'Are you sure you want to delete this vehicle?' },
+        method: :delete,
+        class: "btn btn-danger",
+        role: "button"
+      %>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="col-sm-7">
+    <%= image_tag @vehicle.photo_url(:regular) %>
+  </div>
+  <div class="col-sm-5">
+    <p><%= @vehicle.description %></p>
+    <div class="row">
+      <div class="col-sm-3">
+        <dl>
+          <dt>Seats</dt>
+          <dd><%= @vehicle.seats %></dd>
+        </dl>
+      </div>
+      <div class="col-sm-3">
+        <dl>
+          <dt>Economy Rating</dt>
+          <dd><%= @vehicle.economy_rating %></dd>
+        </dl>
+      </div>
+      <div class="col-sm-6">
+        <dl>
+          <dt>Luggage Capacity</dt>
+          <dd><%= @vehicle.luggage_capacity %></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if @vehicle.body? %>
+  <%= raw illustrated_markdown_to_html(@vehicle, @vehicle.body) %>
+<% end %>

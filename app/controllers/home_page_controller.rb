@@ -3,7 +3,7 @@ class HomePageController < ApplicationController
 
   def update
     if @home_page.update_attributes(home_page_params)
-      redirect_to @home_page, notice: "Successfully updated home page."
+      redirect_to @home_page, notice: "Successfully updated the home page."
     else
       render :edit
     end

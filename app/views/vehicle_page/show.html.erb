@@ -1,0 +1,42 @@
+<% title "Our Vehicles" %>
+
+<% if @vehicle_types.present? %>  
+  <% @vehicle_types.each do |vehicle_type| %>
+    <% if vehicle_type.vehicles.present? %>
+      <h2 class="text-center"><%= vehicle_type.name %></h2>
+      <hr />
+      <% vehicle_type.vehicles.where(published: true).each do |vehicle| %>
+        <div class="row">
+          <div class="col-sm-4">
+            <%= image_tag vehicle.photo_url(:thumbnail) %>
+          </div>
+          <div class="col-sm-8">
+            <h3><%= link_to vehicle.name, vehicle_path(vehicle) %></h3>
+            <p><%= vehicle.description %></p>
+            <div class="row">
+              <div class="col-sm-3">
+                <dl>
+                  <dt>Seats</dt>
+                  <dd><%= vehicle.seats %></dd>
+                </dl>
+              </div>
+              <div class="col-sm-3">
+                <dl>
+                  <dt>Economy Rating</dt>
+                  <dd><%= vehicle.economy_rating %></dd>
+                </dl>
+              </div>
+              <div class="col-sm-6">
+                <dl>
+                  <dt>Luggage Capacity</dt>
+                  <dd><%= vehicle.luggage_capacity %></dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+      <% end %>      
+    <% end %>
+  <% end %>
+<% end %>

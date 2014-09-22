@@ -7,15 +7,44 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <main>
-      <div>
-        <div>
-          <h1>Buzzy Rental Cars</h1>
-          <h2><%= yield(:title) %></h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <%= render partial: 'layouts/header' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <% if nav_pages %>
+            <ul class="nav nav-pills">
+              <li class="<%= 'active' if (params[:controller] == 'home_page' &&
+                params[:action] == 'show') %>">
+                <%= link_to "Home", root_url %>
+              </li>
+
+              <li class="<%= 'active' if (params[:controller] == 'vehicle_page' &&
+                params[:action] == 'show') %>">
+                <%= link_to "Our Vehicles", "/our-vehicles" %>
+              </li>
+              <% nav_pages.each do |page| %>
+                <li class="<%= 'active' if params[:id] == page.slug %>">
+                  <%= link_to page.name, root_url + page.slug %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+          <% unless params[:controller] == 'home_page' && params[:action] == 'show' %>
+            <h1><%= yield(:title) %></h1>
+          <% end %>
           <%= render partial: 'layouts/flash_messages' %>
           <%= yield %>
         </div>
       </div>
-    </main>
+      <div class="row">
+        <div class="col-sm-12">
+          <%= render partial: 'layouts/footer' %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

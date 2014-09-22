@@ -11,9 +11,9 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # def nav_pages
-  #   Page.all.where(published: true)
-  # end
+  def nav_pages
+    Page.all.where(published: true).order(:name)
+  end
 
   def administrator?
     if current_user

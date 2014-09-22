@@ -1,3 +1,51 @@
-<% title "Home Page" %>
+<% if policy(@home_page).edit? %>
+  <div class="btn-toolbar" role="toolbar">
+    <div class="btn-group">
+      <%= link_to 'Edit Home Page', edit_home_page_path(@home_page),
+        class: "btn btn-default",
+        role: "button"
+      %>
+    </div>
+  </div>
+<% end %>
 
-<iframe src="https://secure2.rentalcarmanager.com/ssl/NzBuzzyRentalCars243/webStep1.asp" width="600" height="400"></iframe>
+<div class="row">
+  <div class="col-sm-5">
+    <h2>Rent a Car</h2>
+    <iframe src="https://secure2.rentalcarmanager.com/ssl/NzBuzzyRentalCars243/webStep1.asp" width="440" height="356"></iframe>
+  </div>
+  <div class="col-sm-7">
+    <div class="row">
+      <% if @home_page.content.present? %>
+        <div class="home-page-content"><%= @home_page.content %></span>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="col-sm-7">
+        <% if @home_page.picture.present? %>
+          <%= image_tag @home_page.picture_url(:regular) %>
+        <% end %>
+      </div>
+      <div class="col-sm-5">
+        <% if @home_page.email.present? %>
+          <dl>
+            <dt>Email</dt>
+            <dd><%= mail_to @home_page.email, @home_page.email %></dd>
+          </dl>
+        <% end %>
+        <% if @home_page.phone.present? %>
+          <dl>
+            <dt>Phone</dt>
+            <dd><%= @home_page.phone %></dd>
+          </dl>
+        <% end %>
+        <% if @home_page.facebook.present? %>
+          <p><%= link_to "Like us on Facebook", "http://www.facebook.com/" + @home_page.facebook %></p>
+        <% end %>
+        <% if @home_page.twitter.present? %>
+          <p><%= link_to "Follow us on Twitter", "http://www.twitter.com/" + @home_page.twitter %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

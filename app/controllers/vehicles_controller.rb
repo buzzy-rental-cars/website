@@ -2,7 +2,8 @@ class VehiclesController < ApplicationController
   before_action :load_vehicle, except: [:index, :new, :create]
 
   def index
-    @vehicles = policy_scope(Vehicle.order(:created_at).page(params[:page]).per(100))
+    @vehicles = policy_scope(Vehicle.order(:created_at))
+    @vehicle_types = policy_scope(VehicleType.order(:name))
   end
 
   def new
@@ -37,12 +38,21 @@ class VehiclesController < ApplicationController
 
   def vehicle_params
     params.require(:vehicle).permit(
-      :name
+      :name,
+      :description,
+      :vehicle_type_id,
+      :photo,
+      :photo_cache,
+      :body,
+      :seats,
+      :economy_rating,
+      :luggage_capacity,
+      :published
     )
   end
 
   def load_vehicle
-    @vehicle = Vehicle.find_by_slug slug: params[:id]
+    @vehicle = Vehicle.find_by slug: params[:id]
     authorize @vehicle
   end
 end

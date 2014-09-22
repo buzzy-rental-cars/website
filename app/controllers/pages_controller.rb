@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   before_action :load_page, except: [:index, :new, :create]
 
   def index
-    @pages = policy_scope(Page.order(:name).page(params[:page]).per(100))
+    @pages = policy_scope(Page.order(:name))
   end
 
   def new
@@ -40,12 +40,18 @@ class PagesController < ApplicationController
       :name,
       :description,
       :body,
-      :published
+      :published,
+      illustrations_attributes: [
+        :id,
+        :illustration,
+        :illustration_cache,
+        :_destroy
+      ]
     )
   end
 
   def load_page
-    @page = Page.find_by_slug slug: params[:id]
+    @page = Page.find_by slug: params[:id]
     authorize @page
   end
 end
