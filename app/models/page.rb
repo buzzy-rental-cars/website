@@ -3,6 +3,7 @@ class Page < ActiveRecord::Base
   include Sluggable
 
   validates :name, presence: true, length: { in: 1..75 }, uniqueness: true
+  validates :description, presence: true, length: { in: 1..250 }, uniqueness: true
 
   before_validation :prevent_reserved_name
 

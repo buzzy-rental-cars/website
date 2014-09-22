@@ -3,6 +3,10 @@ module ApplicationHelper
     content_for(:title) { page_title }
   end
 
+  def description(page_description)
+    content_for(:description) { page_description }
+  end
+
   def markdown_to_html(markdown_text)
     # Converts remaining Markdown syntax to html tags using Kramdown.
     require 'kramdown'
