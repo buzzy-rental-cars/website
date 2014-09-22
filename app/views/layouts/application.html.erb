@@ -2,6 +2,9 @@
 <html>
   <head>
     <title>Buzzy Rental Cars | <%= yield(:title) %></title>
+    <%= favicon_link_tag asset_path('favicons/16x16.png') %>
+    <%= favicon_link_tag asset_path('favicons/32x32.png') %>
+    <%= favicon_link_tag asset_path('favicons/64x64.png') %>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="<%= yield(:description) %>" />
     <%= stylesheet_link_tag 'application', media: 'all' %>
