@@ -1,0 +1,23 @@
+<h2>Illustrations</h2>
+<%= f.fields_for :illustrations do |illustration_form| %>
+  <div class="illustration">
+    <div class="form-group">
+      <%= f.label :illustration, "Illustration", class: "col-sm-2 control-label" %>
+      <div class="col-sm-12">
+        <%= image_tag(illustration_form.object.illustration_url(:thumbnail)) if illustration_form.object.illustration? %>
+        <% if illustration_form.object.illustration? %>
+          <dl>
+            <dt>Filename</dt>
+            <dd><%= File.basename(illustration_form.object.illustration.path) %></dd>
+            <dt>Markdown tag<dt>
+            <dd><code>![Alternative Text Here](<%= File.basename(illustration_form.object.illustration.path) %>)</code></dd>
+          </dl>
+        <% end %>
+        <%= illustration_form.file_field :illustration, class: "form-control" %>
+        <%= illustration_form.hidden_field :illustration_cache %>
+        <%= illustration_form.link_to_remove "Remove illustration" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<p><%= f.link_to_add "Add another illustration", :illustrations %></p>

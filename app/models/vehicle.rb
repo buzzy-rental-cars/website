@@ -1,4 +1,5 @@
 class Vehicle < ActiveRecord::Base
+  include Illustratable
   include Sluggable
 
   belongs_to :vehicle_type

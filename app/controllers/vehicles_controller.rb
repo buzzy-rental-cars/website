@@ -47,7 +47,13 @@ class VehiclesController < ApplicationController
       :seats,
       :economy_rating,
       :luggage_capacity,
-      :published
+      :published,
+      illustrations_attributes: [
+        :id,
+        :illustration,
+        :illustration_cache,
+        :_destroy
+      ]
     )
   end
 

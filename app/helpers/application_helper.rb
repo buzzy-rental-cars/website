@@ -22,7 +22,7 @@ module ApplicationHelper
       attributes: allowed_attributes, protocols: allowed_protocols)
   end
 
-  def illustrated_markdown_to_html(illustratable, markdown_text)
+  def illustrated_markdown_to_html(illustratable_type, illustratable, markdown_text)
     require 'kramdown'
     require 'sanitize'
     require 'nokogiri'
@@ -48,7 +48,7 @@ module ApplicationHelper
       file_name = img.get_attribute('src')
       if illustration = Illustration.where(
         illustratable_id: illustratable.id, 
-        illustratable_type: "Page",
+        illustratable_type: illustratable_type,
         illustration: file_name
       ).first
         img.set_attribute('src', illustration.illustration_url(:regular))

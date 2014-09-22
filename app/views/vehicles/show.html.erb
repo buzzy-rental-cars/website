@@ -23,7 +23,7 @@
   </div>
 <% end %>
 
-<div class="row">
+<div class="row vehicle">
   <div class="col-sm-7">
     <%= image_tag @vehicle.photo_url(:regular) %>
   </div>
@@ -53,5 +53,5 @@
 </div>
 
 <% if @vehicle.body? %>
-  <%= raw illustrated_markdown_to_html(@vehicle, @vehicle.body) %>
+  <%= raw illustrated_markdown_to_html("Vehicle", @vehicle, @vehicle.body) %>
 <% end %>
