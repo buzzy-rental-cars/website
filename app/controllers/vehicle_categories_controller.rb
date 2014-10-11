@@ -45,6 +45,7 @@ class VehicleCategoriesController < ApplicationController
       :photo_cache,
       :body,
       :economy_rating,
+      :display_order,
       :published,
       illustrations_attributes: [
         :id,

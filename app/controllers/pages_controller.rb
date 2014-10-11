@@ -40,6 +40,7 @@ class PagesController < ApplicationController
       :name,
       :description,
       :body,
+      :display_order,
       :published,
       illustrations_attributes: [
         :id,

@@ -38,6 +38,7 @@ class PriceCategoriesController < ApplicationController
   def price_category_params
     params.require(:price_category).permit(
       :name,
+      :display_order,
       :published
     )
   end

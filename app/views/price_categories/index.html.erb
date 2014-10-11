@@ -13,6 +13,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th>Display Order</th>
         <th>Name</th>
         <th>Published?</th>
         <th></th>
@@ -22,6 +23,7 @@
     <tbody>
       <% @price_categories.each do |price_category| %>
         <tr>
+          <td><%= price_category.display_order %></td>
           <td><%= price_category.name %></td>
           <td><%= price_category.published? ? "Yes" : "No" %></td>
           <td>

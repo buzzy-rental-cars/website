@@ -13,6 +13,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th>Display Order</th>
         <th>Name</th>
         <th>Photo</th>
         <th>Published?</th>
@@ -23,6 +24,7 @@
     <tbody>
       <% @vehicle_categories.each do |vehicle_category| %>
         <tr>
+          <td><%= vehicle_category.display_order %></td>
           <td><%= link_to vehicle_category.name, vehicle_category %></td>
           <td><%= image_tag vehicle_category.photo_url(:thumbnail) %></td>
           <td><%= vehicle_category.published? ? "Yes" : "No" %></td>
