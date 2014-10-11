@@ -4,6 +4,7 @@ gem 'rails', '4.1.4'
 
 group :development do
   gem 'guard-rspec', '~> 4.2.10'
+  gem 'puma', '~> 2.9.1'
   gem 'sqlite3', '~> 1.3.9'
 end
 
