@@ -24,7 +24,6 @@ group :production do
 end
 
 gem 'bootstrap-sass', '~> 3.2.0'
-gem 'carrierwave', '~> 0.10.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise', '~> 3.2.4'
 gem 'jquery-rails', '~> 3.1.1'
@@ -35,6 +34,7 @@ gem 'nested_form', '~> 0.3.2'
 gem 'nokogiri', '1.6.3.1'
 gem 'omniauth', '~> 1.2.1'
 gem 'omniauth-twitter', '~> 1.0.1'
+gem 'paperclip', '~> 4.2.0'
 gem 'pg', '~> 0.17.1'
 gem 'pundit', '~> 0.2.3'
 gem 'sanitize', '~> 2.1.0'

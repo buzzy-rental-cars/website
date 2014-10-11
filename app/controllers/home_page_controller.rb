@@ -13,13 +13,12 @@ class HomePageController < ApplicationController
 
   def home_page_params
     params.require(:home_page).permit(
+      :promotional_message,
+      :promoted_page_id,
       :email,
       :phone,
       :facebook,
-      :twitter,
-      :picture,
-      :picture_cache,
-      :content
+      :twitter
     )
   end
 

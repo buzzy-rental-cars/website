@@ -2,6 +2,8 @@ class Page < ActiveRecord::Base
   include Illustratable
   include Sluggable
 
+  has_one :home_page
+
   validates :name, presence: true, length: { in: 1..75 }, uniqueness: true
   validates :description, presence: true, length: { in: 1..250 }, uniqueness: true
   validates :display_order, presence: true, numericality: { only_integer: true }

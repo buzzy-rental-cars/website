@@ -45,7 +45,6 @@ class PagesController < ApplicationController
       illustrations_attributes: [
         :id,
         :illustration,
-        :illustration_cache,
         :_destroy
       ]
     )

@@ -1,5 +1,5 @@
 module PagesHelper
-  def display_order_values(page)
+  def page_display_order_values(page)
     if page.id
       (1..Page.all.count).to_a
     else

@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Buzzy Rental Cars | <%= yield(:title) %></title>
+    <% if params[:controller] == 'home_page' && params[:action] == 'show' %>
+      <title>Buzzy Rental Cars</title>
+    <% else %>
+      <title>Buzzy Rental Cars | <%= yield(:title) %></title>
+    <% end %>
     <%= favicon_link_tag asset_path('favicons/16x16.png') %>
     <%= favicon_link_tag asset_path('favicons/32x32.png') %>
     <%= favicon_link_tag asset_path('favicons/64x64.png') %>
@@ -26,7 +30,6 @@
                 params[:action] == 'show') %>">
                 <%= link_to "Home", root_url %>
               </li>
-
               <li class="<%= 'active' if (params[:controller] == 'vehicle_page' &&
                 params[:action] == 'show') %>">
                 <%= link_to "Our Vehicles", "/our-vehicles" %>

@@ -25,8 +25,8 @@
       <% @vehicle_categories.each do |vehicle_category| %>
         <tr>
           <td><%= vehicle_category.display_order %></td>
-          <td><%= link_to vehicle_category.name, vehicle_category %></td>
-          <td><%= image_tag vehicle_category.photo_url(:thumbnail) %></td>
+          <td><%= vehicle_category.name %></td>
+          <td><%= image_tag vehicle_category.photo.url(:thumbnail) %></td>
           <td><%= vehicle_category.published? ? "Yes" : "No" %></td>
           <td>
             <%= link_to 'Edit Vehicle Category', edit_vehicle_category_path(vehicle_category),

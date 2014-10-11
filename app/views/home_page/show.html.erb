@@ -1,4 +1,4 @@
-<% description @home_page.content %>
+<% description @home_page.promotional_message %>
 
 <% if policy(@home_page).edit? %>
   <div class="btn-toolbar" role="toolbar">
@@ -13,21 +13,20 @@
 
 <div class="row">
   <div class="col-sm-5">
-    <h2>Rent a Car</h2>
     <iframe src="https://secure2.rentalcarmanager.com/ssl/NzBuzzyRentalCars243/webStep1.asp" width="440" height="356"></iframe>
   </div>
   <div class="col-sm-7">
     <div class="row">
-      <% if @home_page.content.present? %>
-        <div class="home-page-content"><%= @home_page.content %></span>
+      <% if @home_page.promotional_message.present? %>
+        <div class="home-page-content"><%= raw markdown_to_html @home_page.promotional_message %></span>
       <% end %>
     </div>
     <div class="row">
-      <div class="col-sm-7">
-        <% if @home_page.picture.present? %>
-          <%= image_tag @home_page.picture_url(:regular) %>
-        <% end %>
-      </div>
+      <% if @home_page.promoted_page && @home_page.promoted_page.published %>
+        <p><%= link_to @home_page.promoted_page.name, page_path(@home_page.promoted_page) %></p>
+      <% end %>
+    </div>
+    <div class="row">
       <div class="col-sm-5">
         <% if @home_page.email.present? %>
           <dl>

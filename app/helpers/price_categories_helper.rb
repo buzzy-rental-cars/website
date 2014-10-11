@@ -1,5 +1,5 @@
 module PriceCategoriesHelper
-  def display_order_values(price_category)
+  def price_category_display_order_values(price_category)
     if price_category.id
       (1..PriceCategory.all.count).to_a
     else
