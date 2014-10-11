@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141011025628) do
+ActiveRecord::Schema.define(version: 20141011035919) do
 
   create_table "home_page", force: true do |t|
     t.string   "email"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20141011025628) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "display_order", default: 1
   end
 
   create_table "price_categories", force: true do |t|
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 20141011025628) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "display_order", default: 1
   end
 
   create_table "users", force: true do |t|
@@ -77,6 +79,7 @@ ActiveRecord::Schema.define(version: 20141011025628) do
     t.decimal  "economy_rating",    precision: 2, scale: 1, default: 0.0
     t.integer  "seats",                                     default: 0
     t.string   "luggage_capacity"
+    t.integer  "display_order",                             default: 1
   end
 
 end

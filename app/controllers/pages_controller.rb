@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   before_action :load_page, except: [:index, :new, :create]
 
   def index
-    @pages = policy_scope(Page.order(:name))
+    @pages = policy_scope(Page.order(:display_order))
   end
 
   def new

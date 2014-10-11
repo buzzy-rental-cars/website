@@ -2,7 +2,7 @@ class PriceCategoriesController < ApplicationController
   before_action :load_price_category, except: [:index, :new, :create]
 
   def index
-    @price_categories = policy_scope(PriceCategory.order(:created_at))
+    @price_categories = policy_scope(PriceCategory.order(:display_order))
   end
 
   def new

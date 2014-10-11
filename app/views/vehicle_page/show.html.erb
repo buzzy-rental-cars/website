@@ -5,7 +5,7 @@
     <% if price_category.vehicle_categories.present? %>
       <h2 class="text-center"><%= price_category.name %></h2>
       <hr />
-      <% price_category.vehicle_categories.where(published: true).each do |vehicle_category| %>
+      <% price_category.vehicle_categories.where(published: true, order: display_order).each do |vehicle_category| %>
         <div class="row">
           <div class="col-sm-4">
             <%= image_tag vehicle_category.photo_url(:thumbnail) %>

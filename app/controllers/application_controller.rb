@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   private
 
   def nav_pages
-    Page.all.where(published: true).order(:name)
+    Page.all.where(published: true).order(:display_order)
   end
 
   def administrator?

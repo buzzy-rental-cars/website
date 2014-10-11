@@ -2,8 +2,8 @@ class VehicleCategoriesController < ApplicationController
   before_action :load_vehicle_category, except: [:index, :new, :create]
 
   def index
-    @vehicle_categories = policy_scope(VehicleCategory.order(:created_at))
-    @price_categories = policy_scope(PriceCategory.order(:name))
+    @vehicle_categories = policy_scope(VehicleCategory.order(:display_order))
+    @price_categories = policy_scope(PriceCategory.order(:display_order))
   end
 
   def new
