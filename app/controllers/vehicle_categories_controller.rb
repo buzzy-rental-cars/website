@@ -44,9 +44,7 @@ class VehicleCategoriesController < ApplicationController
       :photo,
       :photo_cache,
       :body,
-      :seats,
       :economy_rating,
-      :luggage_capacity,
       :published,
       illustrations_attributes: [
         :id,
