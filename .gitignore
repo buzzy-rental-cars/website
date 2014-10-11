@@ -18,8 +18,8 @@
 # Ignore OSX's Desktop Services Store.
 .DS_Store
 
-# Ignore Carrierwave uploads.
-/public/uploads/*
+# Ignore Paperlip uploads.
+/public/system/*
 
 # Ignore compiled assets.
 /public/assets/*
