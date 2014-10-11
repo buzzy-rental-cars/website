@@ -18,9 +18,6 @@
 # Ignore OSX's Desktop Services Store.
 .DS_Store
 
-# Ignore files containing private information.
-/config/database.yml
-
 # Ignore Carrierwave uploads.
 /public/uploads/*
 

@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 20140921024622) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "number_of_people",                         default: 0
     t.integer  "vehicle_type_id"
     t.text     "body"
     t.decimal  "economy_rating",   precision: 2, scale: 1, default: 0.0
