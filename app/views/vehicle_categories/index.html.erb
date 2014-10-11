@@ -1,0 +1,47 @@
+<% title "Vehicle Categories" %>
+
+<% if policy(VehicleCategory).new? %>
+  <div>
+    <%= link_to 'New Vehicle Category', new_vehicle_category_path,
+      class: "btn btn-default",
+      role: "button"
+    %>
+  </div>
+<% end %>
+
+<% if @vehicle_categories.present? && administrator? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Photo</th>
+        <th>Published?</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @vehicle_categories.each do |vehicle_category| %>
+        <tr>
+          <td><%= link_to vehicle_category.name, vehicle_category %></td>
+          <td><%= image_tag vehicle_category.photo_url(:thumbnail) %></td>
+          <td><%= vehicle_category.published? ? "Yes" : "No" %></td>
+          <td>
+            <%= link_to 'Edit Vehicle Category', edit_vehicle_category_path(vehicle_category),
+              class: "btn btn-default",
+              role: "button"
+            %>
+          </td>
+          <td>
+            <%= link_to 'Delete Vehicle Category', vehicle_category, data:
+              { confirm: 'Are you sure you want to delete this vehicle category?' },
+              method: :delete,
+              class: "btn btn-danger",
+              role: "button"
+            %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

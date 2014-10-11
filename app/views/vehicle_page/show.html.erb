@@ -1,35 +1,35 @@
 <% title "Our Vehicles" %>
 
-<% if @vehicle_types.present? %>  
-  <% @vehicle_types.each do |vehicle_type| %>
-    <% if vehicle_type.vehicles.present? %>
-      <h2 class="text-center"><%= vehicle_type.name %></h2>
+<% if @price_categories.present? %>  
+  <% @price_categories.each do |price_category| %>
+    <% if price_category.vehicle_categories.present? %>
+      <h2 class="text-center"><%= price_category.name %></h2>
       <hr />
-      <% vehicle_type.vehicles.where(published: true).each do |vehicle| %>
+      <% price_category.vehicle_categories.where(published: true).each do |vehicle_category| %>
         <div class="row">
           <div class="col-sm-4">
-            <%= image_tag vehicle.photo_url(:thumbnail) %>
+            <%= image_tag vehicle_category.photo_url(:thumbnail) %>
           </div>
           <div class="col-sm-8">
-            <h3><%= link_to vehicle.name, vehicle_path(vehicle) %></h3>
-            <p><%= vehicle.description %></p>
+            <h3><%= link_to vehicle_category.name, vehicle_category_path(vehicle_category) %></h3>
+            <p><%= vehicle_category.description %></p>
             <div class="row">
               <div class="col-sm-3">
                 <dl>
                   <dt>Seats</dt>
-                  <dd><%= vehicle.seats %></dd>
+                  <dd><%= vehicle_category.seats %></dd>
                 </dl>
               </div>
               <div class="col-sm-3">
                 <dl>
                   <dt>Economy Rating</dt>
-                  <dd><%= vehicle.economy_rating %></dd>
+                  <dd><%= vehicle_category.economy_rating %></dd>
                 </dl>
               </div>
               <div class="col-sm-6">
                 <dl>
                   <dt>Luggage Capacity</dt>
-                  <dd><%= vehicle.luggage_capacity %></dd>
+                  <dd><%= vehicle_category.luggage_capacity %></dd>
                 </dl>
               </div>
             </div>

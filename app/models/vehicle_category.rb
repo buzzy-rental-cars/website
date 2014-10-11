@@ -1,8 +1,8 @@
-class Vehicle < ActiveRecord::Base
+class VehicleCategory < ActiveRecord::Base
   include Illustratable
   include Sluggable
 
-  belongs_to :vehicle_type
+  belongs_to :price_category
 
   validates :name, presence: true, length: { in: 1..75 }, uniqueness: true
   validates :vehicle_type, presence: true

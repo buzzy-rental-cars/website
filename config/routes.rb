@@ -4,8 +4,8 @@ Rails.application.routes.draw do
     get 'log-in', to: 'sessions#create'
     get 'log-out', to: 'sessions#destroy', as: :destroy_user_session
   end
-  resources :vehicles
-  resources :vehicle_types, path: 'vehicle-types'
+  resources :vehicle_categories, path: 'vehicle-categories'
+  resources :price_categories, path: 'price-categories'
   resources :pages
   resources :home_page
   resources :users

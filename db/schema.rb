@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140921024622) do
+ActiveRecord::Schema.define(version: 20141011025628) do
 
   create_table "home_page", force: true do |t|
     t.string   "email"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(version: 20140921024622) do
     t.datetime "updated_at"
   end
 
+  create_table "price_categories", force: true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.integer  "sign_in_count",      default: 0,     null: false
     t.datetime "current_sign_in_at"
@@ -56,15 +64,7 @@ ActiveRecord::Schema.define(version: 20140921024622) do
     t.datetime "updated_at"
   end
 
-  create_table "vehicle_types", force: true do |t|
-    t.string   "name"
-    t.string   "slug"
-    t.boolean  "published"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "vehicles", force: true do |t|
+  create_table "vehicle_categories", force: true do |t|
     t.string   "name"
     t.string   "slug"
     t.string   "description"
@@ -72,10 +72,10 @@ ActiveRecord::Schema.define(version: 20140921024622) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "vehicle_type_id"
+    t.integer  "price_category_id"
     t.text     "body"
-    t.decimal  "economy_rating",   precision: 2, scale: 1, default: 0.0
-    t.integer  "seats",                                    default: 0
+    t.decimal  "economy_rating",    precision: 2, scale: 1, default: 0.0
+    t.integer  "seats",                                     default: 0
     t.string   "luggage_capacity"
   end
 

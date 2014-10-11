@@ -1,0 +1,45 @@
+<% title "Price Categories" %>
+
+<% if policy(PriceCategory).new? %>
+  <div>
+    <%= link_to 'New Price Category', new_price_category_path,
+      class: "btn btn-default",
+      role: "button"
+    %>
+  </div>
+<% end %>
+
+<% if @price_categories.present? && administrator? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Published?</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @price_categories.each do |price_category| %>
+        <tr>
+          <td><%= price_category.name %></td>
+          <td><%= price_category.published? ? "Yes" : "No" %></td>
+          <td>
+            <%= link_to 'Edit Price Category', edit_price_category_path(price_category),
+              class: "btn btn-default",
+              role: "button"
+            %>
+          </td>
+          <td>
+            <%= link_to 'Delete Price Category', price_category, data:
+              { confirm: 'Are you sure you want to delete this price category? ALL VEHICLE CATEGORIES BELONGING TO THIS PRICE CATEGORY WILL ALSO BE DELETED.' },
+              method: :delete,
+              class: "btn btn-danger",
+              role: "button"
+            %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

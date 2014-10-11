@@ -1,4 +1,4 @@
-class VehicleTypePolicy < ApplicationPolicy
+class VehicleCategoryPolicy < ApplicationPolicy
   class Scope < Struct.new(:user, :scope)
     def resolve
       if user

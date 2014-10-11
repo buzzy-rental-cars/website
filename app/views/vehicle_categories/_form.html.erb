@@ -1,5 +1,5 @@
-<%= nested_form_for @vehicle, html: { role: "form", class: "form-horizontal" } do |f| %>
-  <%= render "shared/error_messages", target: @vehicle %>
+<%= nested_form_for @vehicle_category, html: { role: "form", class: "form-horizontal" } do |f| %>
+  <%= render "shared/error_messages", target: @vehicle_category %>
   <div class="form-group">
     <%= f.label :name, "Name", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
@@ -13,15 +13,15 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :vehicle_type_id, "Vehicle Type", class: "col-sm-2 control-label" %>
+    <%= f.label :price_category_id, "Price Category", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.select :vehicle_type_id, options_for_select(VehicleType.all.collect { |vt| [vt.name, vt.id] }, selected: @vehicle.vehicle_type_id), {}, class: "form-control" %>
+      <%= f.select :price_category_id, options_for_select(PriceCategory.all.collect { |pc| [pc.name, pc.id] }, selected: @vehicle_category.price_category_id), {}, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :photo, "Photo", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= image_tag(@vehicle.photo_url(:thumbnail)) if @vehicle.photo? %>
+      <%= image_tag(@vehicle_category.photo_url(:thumbnail)) if @vehicle_category.photo? %>
       <%= f.file_field :photo, class: "form-control" %>
       <%= f.hidden_field :photo_cache %>
     </div>
@@ -57,7 +57,7 @@
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <div class="checkbox">
-        <label><%= f.check_box :published %>Publish this vehicle?</label>
+        <label><%= f.check_box :published %>Publish this vehicle category?</label>
       </div>
     </div>
   </div>
