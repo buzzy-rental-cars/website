@@ -56,6 +56,7 @@ module ApplicationHelper
         image_file = Paperclip::Geometry.from_file(illustration.illustration.path(:embedded))
         img.set_attribute('width', image_file.width.to_i.to_s)
         img.set_attribute('height', image_file.height.to_i.to_s)
+        img.set_attribute('class', 'illustration')
       else
         img.set_attribute('src', '')
       end
