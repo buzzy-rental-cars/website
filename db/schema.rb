@@ -11,13 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141011082753) do
+ActiveRecord::Schema.define(version: 20141012095109) do
 
   create_table "home_page", force: true do |t|
-    t.string   "email"
-    t.string   "phone"
-    t.string   "facebook"
-    t.string   "twitter"
     t.text     "promotional_message"
     t.datetime "created_at"
     t.datetime "updated_at"
