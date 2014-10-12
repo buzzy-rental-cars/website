@@ -16,6 +16,7 @@
         <th>Display Order</th>
         <th>Name</th>
         <th>Photo</th>
+        <th>Price Category</th>
         <th>Published?</th>
         <th></th>
         <th></th>
@@ -27,6 +28,7 @@
           <td><%= vehicle_category.display_order %></td>
           <td><%= vehicle_category.name %></td>
           <td><%= image_tag vehicle_category.photo.url(:thumbnail) %></td>
+          <td><%= vehicle_category.price_category.name %></td>
           <td><%= vehicle_category.published? ? "Yes" : "No" %></td>
           <td>
             <%= link_to 'Edit Vehicle Category', edit_vehicle_category_path(vehicle_category),

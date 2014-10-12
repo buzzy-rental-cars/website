@@ -1,0 +1,29 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+$(document).on 'ready page:load', ->
+  $("a.launch-popover").click (event) ->
+    event.preventDefault()
+    $("#popover img.photo").attr "src", $(this).attr("data-photo-url")
+    $("#popover img.photo").attr "alt", $(this).attr("data-name")
+    $("#popover h2.name").text $(this).attr("data-name")
+    $("#popover p.description").text $(this).attr("data-description")
+    economyRating = $(this).attr("data-economy-rating")
+    switch economyRating
+      when "1.0" then $("#popover img.economy-rating").attr("src", "<%= asset_path('1-0.png') %>")
+      when "1.5" then $("#popover img.economy-rating").attr("src", "<%= asset_path('1-5.png') %>")
+      when "2.0" then $("#popover img.economy-rating").attr("src", "<%= asset_path('2-0.png') %>")
+      when "2.5" then $("#popover img.economy-rating").attr("src", "<%= asset_path('2-5.png') %>")
+      when "3.0" then $("#popover img.economy-rating").attr("src", "<%= asset_path('3-0.png') %>")
+      when "3.5" then $("#popover img.economy-rating").attr("src", "<%= asset_path('3-5.png') %>")
+      when "4.0" then $("#popover img.economy-rating").attr("src", "<%= asset_path('4-0.png') %>")
+      when "4.5" then $("#popover img.economy-rating").attr("src", "<%= asset_path('4-5.png') %>")
+      when "5.0" then $("#popover img.economy-rating").attr("src", "<%= asset_path('5-0.png') %>")
+      when "5.5" then $("#popover img.economy-rating").attr("src", "<%= asset_path('5-5.png') %>")
+      when "6.0" then $("#popover img.economy-rating").attr("src", "<%= asset_path('6-0.png') %>")
+      else $("#popover img.economy-rating").attr("src", "<%= asset_path('no-rating.png') %>")
+    $("#popover").fadeIn "fast"
+
+  $("#popover a.close-popover").click ->
+    $("#popover").fadeOut "fast"

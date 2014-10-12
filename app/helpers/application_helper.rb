@@ -50,13 +50,12 @@ module ApplicationHelper
     # Sets correct src, width, and height attributes for the illustration.
     html.css('img').each do |img|
       file_name = img.get_attribute('src')
-      if illustration = Illustration.where(
-        illustratable_id: illustratable.id, 
-        illustratable_type: illustratable_type,
-        illustration: file_name
-      ).first
-        img.set_attribute('src', illustration.illustration_url(:regular))
-        img.set_attribute('class', 'illustration')
+      if illustration = Illustration.where(illustratable_id: illustratable.id, 
+          illustratable_type: illustratable_type, illustration_file_name: file_name).first
+        img.set_attribute('src', illustration.illustration.url(:embedded))
+        image_file = Paperclip::Geometry.from_file(illustration.illustration.path(:embedded))
+        img.set_attribute('width', image_file.width.to_i.to_s)
+        img.set_attribute('height', image_file.height.to_i.to_s)
       else
         img.set_attribute('src', '')
       end

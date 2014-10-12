@@ -1,7 +1,7 @@
 class Illustration < ActiveRecord::Base
   belongs_to :illustratable, polymorphic: true
 
-  has_attached_file :illustration, styles: { thumbnail: "250x250>" }
+  has_attached_file :illustration, styles: { thumbnail: "250x250>", embedded: "920x2000>" }
   
   validates_attachment :illustration, presence: true,
     content_type: { content_type: "image/jpeg" },

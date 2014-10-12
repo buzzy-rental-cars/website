@@ -1,0 +1,42 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+iframe {
+  border: 0;
+  padding: 0;
+}
+
+.promotional_message {
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #ffdd00;
+  text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+.promoted_page {
+  font-size: 20px;
+  color: #ffdd00;
+  text-shadow: 0.1em 0.1em 0.2em black;
+  margin-left: 25px;
+
+  a:hover {
+    color: #ffdd00;
+  }
+}
+
+.middle-section {
+  padding-top: 20px;
+  border-radius: 10px;
+  background: url(<%= asset_path('background.png') %>);
+  height: 633px;
+}
+
+footer {
+  p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}

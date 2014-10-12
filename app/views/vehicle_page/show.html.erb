@@ -1,21 +1,42 @@
 <% title "Our Vehicles" %>
 
+<div id="popover">
+  <div class="row">
+    <div class="col-xs-4">
+      <img class="photo" alt="" src="" />
+    </div>
+    <div class="col-xs-8">
+      <h2 class="name"><h2>
+      <p class="description"></p>
+      <img class="economy-rating" alt="Economy Rating" src="" />
+      <nav>
+        <ul class="nav nav-pills">
+          <li><a class="close-popover">Close Popover</a></li>
+          <li><a class="book" href="<%= root_url %>">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
 <% if @price_categories.present? %>  
   <% @price_categories.each do |price_category| %>
     <% if price_category.vehicle_categories.present? %>
       <h2 class="text-center"><%= price_category.name %></h2>
-      <hr />
-      <% price_category.vehicle_categories.where(published: true).order(:display_order).each do |vehicle_category| %>
-        <div class="row">
-          <div class="col-sm-4">
-            <%= image_tag vehicle_category.photo.url(:thumbnail) %>
+      <div class="row">
+        <% price_category.vehicle_categories.where(published: true).order(:display_order).each do |vehicle_category| %>
+          <div class="col-xs-3 vehicle-category">
+            <a href="#" class="launch-popover" 
+              data-name="<%= vehicle_category.name %>" 
+              data-photo-url="<%= vehicle_category.photo.url(:thumbnail) %>" 
+              data-description="<%= vehicle_category.description %>" 
+              data-economy-rating="<%= vehicle_category.economy_rating %>">
+              <%= image_tag vehicle_category.photo.url(:thumbnail) %>
+              <h3><%= vehicle_category.name %></h3>
+            </a>
           </div>
-          <div class="col-sm-8">
-            <h3><%= vehicle_category.name %></h3>
-          </div>
-        </div>
-        <hr />
-      <% end %>      
+        <% end %>
+       </div>
     <% end %>
   <% end %>
 <% end %>

@@ -1,4 +1,0 @@
-production:
-  after_symlink:
-    - command: sudo ln -nfs $STACK_BASE/shared/uploads $STACK_PATH/public/uploads
-      target: rails

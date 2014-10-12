@@ -50,7 +50,7 @@ class VehicleCategoriesController < ApplicationController
   end
 
   def load_vehicle_category
-    @vehicle_category = VehicleCategory.find_by slug: params[:id]
+    @vehicle_category = VehicleCategory.find params[:id]
     authorize @vehicle_category
   end
 end

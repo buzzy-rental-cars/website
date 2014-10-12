@@ -19,8 +19,21 @@ $nav-link-hover-bg: #ffdd00;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  margin-top: 30px;
+}
+
+.container {
+  width: 950px;
+}
+
 ul.nav-pills {
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 10px;
 }
 
@@ -47,4 +60,10 @@ h3 {
 
 blockquote {
   font-style: italic;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
