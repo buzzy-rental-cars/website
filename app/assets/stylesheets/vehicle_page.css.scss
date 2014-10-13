@@ -29,25 +29,38 @@
   background-color: #DDD;
   z-index: 2;
   
+  button.close-popover {
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+  }
+
   img.photo {
     border-radius: 10px;
-    margin-left: 5px;
+    margin-left: 10px;
     margin-top: 5px;
   }
 
   h2.name {
     margin-top: 0;
+    margin-left: 10px;
     font-size: 20px;
   }
 
   p.description {
+    margin-left: 10px;
     font-size: 20px;
     font-weight: normal;
   }
 
   img.economy-rating {
+    margin-left: 10px;
     border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
+  }
+
+  ul {
+    margin-left: 10px;
   }
 }

@@ -25,5 +25,6 @@ $(document).on 'ready page:load', ->
       else $("#popover img.economy-rating").attr("src", "<%= asset_path('no-rating.png') %>")
     $("#popover").fadeIn "fast"
 
-  $("#popover a.close-popover").click ->
+  $("#popover button.close-popover").click ->
+    event.preventDefault()
     $("#popover").fadeOut "fast"
