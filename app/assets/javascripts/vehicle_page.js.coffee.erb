@@ -23,6 +23,7 @@ $(document).on 'ready page:load', ->
       when "5.5" then $("#popover img.economy-rating").attr("src", "<%= asset_path('5-5.png') %>")
       when "6.0" then $("#popover img.economy-rating").attr("src", "<%= asset_path('6-0.png') %>")
       else $("#popover img.economy-rating").attr("src", "<%= asset_path('no-rating.png') %>")
+    $("a.book").attr "href", $(this).attr("data-booking-url")
     $("#popover").fadeIn "fast"
 
   $("#popover button.close-popover").click ->

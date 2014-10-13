@@ -1,5 +1,8 @@
 class VehicleCategory < ActiveRecord::Base
+  include RentalCarManager
+
   belongs_to :price_category
+  has_one :home_page
 
   validates :name, presence: true, length: { in: 1..75 }
   validates :price_category, presence: true

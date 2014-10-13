@@ -15,6 +15,12 @@
     </div>
   </div>
   <div class="form-group">
+    <%= f.label :rental_car_manager_category_type, "Rental Car Manager Category Type", class: "col-md-2 control-label" %>
+    <div class="col-md-10">
+      <%= f.select :rental_car_manager_category_type, options_for_select(HomePage.rental_car_manager_category_types.collect { |ct| [ct[0].humanize, ct[0]] }, selected: @home_page.rental_car_manager_category_type), {} , class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit class: "btn btn-default" %>
     </div>

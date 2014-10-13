@@ -33,6 +33,12 @@
       <%= f.select :economy_rating, economy_ratings, { include_blank: "No Rating" }, class: "form-control" %>
     </div>
   </div>
+   <div class="form-group">
+    <%= f.label :rental_car_manager_category_type, "Rental Car Manager Category Type", class: "col-md-2 control-label" %>
+    <div class="col-md-10">
+      <%= f.select :rental_car_manager_category_type, options_for_select(VehicleCategory.rental_car_manager_category_types.collect { |ct| [ct[0].humanize, ct[0]] }, selected: @vehicle_category.rental_car_manager_category_type), {} , class: "form-control" %>
+    </div>
+  </div>
   <div class="form-group">
     <%= f.label :display_order, "Display Order", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">

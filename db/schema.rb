@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141012095109) do
+ActiveRecord::Schema.define(version: 20141013074652) do
 
   create_table "home_page", force: true do |t|
     t.text     "promotional_message"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "promoted_page_id"
+    t.integer  "rental_car_manager_category_type"
   end
 
   create_table "illustrations", force: true do |t|
@@ -73,12 +74,13 @@ ActiveRecord::Schema.define(version: 20141012095109) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "price_category_id"
-    t.decimal  "economy_rating",     precision: 2, scale: 1, default: 0.0
-    t.integer  "display_order",                              default: 1
+    t.decimal  "economy_rating",                   precision: 2, scale: 1, default: 0.0
+    t.integer  "display_order",                                            default: 1
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "rental_car_manager_category_type"
   end
 
 end

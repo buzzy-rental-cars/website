@@ -14,7 +14,8 @@ class HomePageController < ApplicationController
   def home_page_params
     params.require(:home_page).permit(
       :promotional_message,
-      :promoted_page_id
+      :promoted_page_id,
+      :rental_car_manager_category_type
     )
   end
 

@@ -13,7 +13,13 @@
 
 <div class="row middle-section">
   <div class="col-xs-6">
-    <iframe src="https://secure2.rentalcarmanager.com/ssl/NzBuzzyRentalCars243/webStep1.asp" width="440" height="356"></iframe>
+    <% if params[:category_type].present? || @home_page.rental_car_manager_category_type.present? %>
+      <% if params[:category_type].present? %>
+        <iframe src="https://secure2.rentalcarmanager.com/ssl/NzBuzzyRentalCars243/webStep1.asp?CatTypeID=<%= params[:category_type] %>" width="440" height="356"></iframe>
+      <% else %>
+        <iframe src="https://secure2.rentalcarmanager.com/ssl/NzBuzzyRentalCars243/webStep1.asp?CatTypeID=<%= @home_page.read_attribute(:rental_car_manager_category_type).to_s %>" width="440" height="356"></iframe>
+      <% end %>
+    <% end %>
     <div class="row">
       <% if @home_page.promoted_page && @home_page.promoted_page.published %>
         <%= link_to(@home_page.promoted_page.name, page_path(@home_page.promoted_page), class: "promoted_page") %>

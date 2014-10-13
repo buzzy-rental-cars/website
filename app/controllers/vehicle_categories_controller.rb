@@ -44,6 +44,7 @@ class VehicleCategoriesController < ApplicationController
       :photo,
       :body,
       :economy_rating,
+      :rental_car_manager_category_type,
       :display_order,
       :published
     )
